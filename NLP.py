@@ -19,7 +19,7 @@ def preprocessing(sentence):
 
 def extract_noun_by_parse(path):
     nouns = []
-    with open(path + "rvwlist.txt", "r", encoding='UTF-8') as fd:#開封
+    with open(path + "rvwlist.txt", "r", encoding='UTF-8') as fd:
         for sentence in map(preprocessing, fd):
             sentence = re.sub(r'[0123456789０１２３４５６７８９！＠＃＄％＾＆\-|\\＊\“（）＿_■×※⇒—●(：〜＋=)／*&^%$#@!~`){}…\[\]\"\'\”:;<>?＜＞？、。・,./『』【】「」→←○]+', "", sentence)
             for chunk in tagger.parse(sentence).splitlines()[:-1]:
